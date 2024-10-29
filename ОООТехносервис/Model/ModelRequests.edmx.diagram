@@ -23,6 +23,8 @@
         <AssociationConnector Association="NSRequests.FK_Request_User" ManuallyRouted="false" />
         <AssociationConnector Association="NSRequests.FK_Request_User1" ManuallyRouted="false" />
         <AssociationConnector Association="NSRequests.FK_User_Role" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="NSRequests.CorrectViewRequest" Width="1.5" PointX="9.625" PointY="3.625" />
+        <EntityTypeShape EntityType="NSRequests.ViewGroupProblem" Width="1.5" PointX="9.75" PointY="1.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

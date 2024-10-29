@@ -79,7 +79,7 @@ namespace ОООТехносервис.View
                     btnNewRequest.Visible = btnEditRequest.Visible = true;
                     break;
                 case 4:
-                    btnEditRequest.Visible = true;
+                    btnReports.Visible = true;
                     break;
             }
 
@@ -129,6 +129,14 @@ namespace ОООТехносервис.View
                 MessageBox.Show("Завявку выберите, пж", "Брах");
                 return;
             }
-        }        
+        }
+
+        private void btnReports_Click(object sender, EventArgs e)
+        {
+            View.Report report = new Report();
+            this.Hide();
+            report.ShowDialog();
+            this.Show();
+        }
     }
 }

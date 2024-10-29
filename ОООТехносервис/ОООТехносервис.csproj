@@ -62,6 +62,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\Helper.cs" />
+    <Compile Include="Model\CorrectViewRequest.cs">
+      <DependentUpon>ModelRequests.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ViewGroupProblem.cs">
+      <DependentUpon>ModelRequests.tt</DependentUpon>
+    </Compile>
     <Compile Include="View\Authorization.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -130,6 +136,12 @@
     <Compile Include="View\ListRequests.Designer.cs">
       <DependentUpon>ListRequests.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Report.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Report.Designer.cs">
+      <DependentUpon>Report.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\WorkRequest.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -151,6 +163,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\ListRequests.resx">
       <DependentUpon>ListRequests.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Report.resx">
+      <DependentUpon>Report.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\WorkRequest.resx">
       <DependentUpon>WorkRequest.cs</DependentUpon>

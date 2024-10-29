@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Хранилище NSRequests" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Хранилище NSRequests" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Equipment">
           <Key>
             <PropertyRef Name="EquipmentID" />
@@ -83,6 +83,43 @@
           <Property Name="UserLogin" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="UserPassword" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="UserRole" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "SeregaDemoExDemo.dbo.CorrectViewRequest" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <EntityType Name="CorrectViewRequest">
+          <Key>
+            <PropertyRef Name="RequestId" />
+            <PropertyRef Name="RequestDate" />
+            <PropertyRef Name="EquipmentName" />
+            <PropertyRef Name="ProblemName" />
+            <PropertyRef Name="Client" />
+            <PropertyRef Name="StatusName" />
+            <PropertyRef Name="Master" />
+            <PropertyRef Name="RequestTime" />
+            <PropertyRef Name="PriorityName" />
+            <PropertyRef Name="StageName" />
+          </Key>
+          <Property Name="RequestId" Type="int" Nullable="false" />
+          <Property Name="RequestDate" Type="date" Nullable="false" />
+          <Property Name="EquipmentName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ProblemName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Client" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="RequestDescription" Type="nvarchar" MaxLength="250" />
+          <Property Name="StatusName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Master" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="RequestTime" Type="int" Nullable="false" />
+          <Property Name="PriorityName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="StageName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="RequestComment" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "SeregaDemoExDemo.dbo.ViewGroupProblem" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <EntityType Name="ViewGroupProblem">
+          <Key>
+            <PropertyRef Name="ProblemName" />
+          </Key>
+          <Property Name="ProblemName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CountProplem" Type="int" />
         </EntityType>
         <!--Ошибки, обнаруженные при создании:
 предупреждение 6002: В таблице или представлении "SeregaDemoExDemo.dbo.ViewRequest" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
@@ -225,6 +262,28 @@
           <EntitySet Name="Status" EntityType="Self.Status" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CorrectViewRequest" EntityType="Self.CorrectViewRequest" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [CorrectViewRequest].[RequestId] AS [RequestId], 
+    [CorrectViewRequest].[RequestDate] AS [RequestDate], 
+    [CorrectViewRequest].[EquipmentName] AS [EquipmentName], 
+    [CorrectViewRequest].[ProblemName] AS [ProblemName], 
+    [CorrectViewRequest].[Client] AS [Client], 
+    [CorrectViewRequest].[RequestDescription] AS [RequestDescription], 
+    [CorrectViewRequest].[StatusName] AS [StatusName], 
+    [CorrectViewRequest].[Master] AS [Master], 
+    [CorrectViewRequest].[RequestTime] AS [RequestTime], 
+    [CorrectViewRequest].[PriorityName] AS [PriorityName], 
+    [CorrectViewRequest].[StageName] AS [StageName], 
+    [CorrectViewRequest].[RequestComment] AS [RequestComment]
+    FROM [dbo].[CorrectViewRequest] AS [CorrectViewRequest]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="ViewGroupProblem" EntityType="Self.ViewGroupProblem" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [ViewGroupProblem].[ProblemName] AS [ProblemName], 
+    [ViewGroupProblem].[CountProplem] AS [CountProplem]
+    FROM [dbo].[ViewGroupProblem] AS [ViewGroupProblem]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="ViewRequest" EntityType="Self.ViewRequest" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [ViewRequest].[RequestDate] AS [RequestDate], 
@@ -273,8 +332,7 @@
             <End Role="User" EntitySet="User" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="NSRequests" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -537,14 +595,16 @@
             <End Role="User" EntitySet="User" />
           </AssociationSet>
           <FunctionImport Name="GetInfoRequestFromMasterName" ReturnType="Collection(NSRequests.GetInfoRequestFromMasterName_Result)">
-            <Parameter Name="IdMaster" Mode="In" Type="Int32" />
+          <Parameter Name="IdMaster" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="GetRequestMasterName" ReturnType="Collection(NSRequests.GetRequestMasterName_Result)">
-            <Parameter Name="MasterName" Mode="In" Type="String" />
+          <Parameter Name="MasterName" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="GetRequestMasterShortName" ReturnType="Collection(NSRequests.GetRequestMasterShortName_Result)">
-            <Parameter Name="MasterName" Mode="In" Type="String" />
+          <Parameter Name="MasterName" Mode="In" Type="String" />
           </FunctionImport>
+          <EntitySet Name="CorrectViewRequest" EntityType="NSRequests.CorrectViewRequest" />
+          <EntitySet Name="ViewGroupProblem" EntityType="NSRequests.ViewGroupProblem" />
         </EntityContainer>
         <ComplexType Name="GetInfoRequestFromMasterName_Result">
           <Property Type="Int32" Name="RequestId" Nullable="false" />
@@ -598,6 +658,39 @@
           <Property Type="String" Name="UserPassword" Nullable="false" MaxLength="50" />
           <Property Type="Int32" Name="UserRole" Nullable="false" />
         </ComplexType>
+        <EntityType Name="CorrectViewRequest">
+          <Key>
+            <PropertyRef Name="RequestId" />
+            <PropertyRef Name="RequestDate" />
+            <PropertyRef Name="EquipmentName" />
+            <PropertyRef Name="ProblemName" />
+            <PropertyRef Name="Client" />
+            <PropertyRef Name="StatusName" />
+            <PropertyRef Name="Master" />
+            <PropertyRef Name="RequestTime" />
+            <PropertyRef Name="PriorityName" />
+            <PropertyRef Name="StageName" />
+          </Key>
+          <Property Name="RequestId" Type="Int32" Nullable="false" />
+          <Property Name="RequestDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="EquipmentName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ProblemName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Client" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="RequestDescription" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="StatusName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Master" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="RequestTime" Type="Int32" Nullable="false" />
+          <Property Name="PriorityName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StageName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RequestComment" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ViewGroupProblem">
+          <Key>
+            <PropertyRef Name="ProblemName" />
+          </Key>
+          <Property Name="ProblemName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CountProplem" Type="Int32" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -773,6 +866,32 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <EntitySetMapping Name="CorrectViewRequest">
+            <EntityTypeMapping TypeName="NSRequests.CorrectViewRequest">
+              <MappingFragment StoreEntitySet="CorrectViewRequest">
+                <ScalarProperty Name="RequestComment" ColumnName="RequestComment" />
+                <ScalarProperty Name="StageName" ColumnName="StageName" />
+                <ScalarProperty Name="PriorityName" ColumnName="PriorityName" />
+                <ScalarProperty Name="RequestTime" ColumnName="RequestTime" />
+                <ScalarProperty Name="Master" ColumnName="Master" />
+                <ScalarProperty Name="StatusName" ColumnName="StatusName" />
+                <ScalarProperty Name="RequestDescription" ColumnName="RequestDescription" />
+                <ScalarProperty Name="Client" ColumnName="Client" />
+                <ScalarProperty Name="ProblemName" ColumnName="ProblemName" />
+                <ScalarProperty Name="EquipmentName" ColumnName="EquipmentName" />
+                <ScalarProperty Name="RequestDate" ColumnName="RequestDate" />
+                <ScalarProperty Name="RequestId" ColumnName="RequestId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ViewGroupProblem">
+            <EntityTypeMapping TypeName="NSRequests.ViewGroupProblem">
+              <MappingFragment StoreEntitySet="ViewGroupProblem">
+                <ScalarProperty Name="CountProplem" ColumnName="CountProplem" />
+                <ScalarProperty Name="ProblemName" ColumnName="ProblemName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

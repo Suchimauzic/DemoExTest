@@ -43,10 +43,10 @@
             this.tbPass = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnClient = new System.Windows.Forms.Button();
-            this.btnMaster = new System.Windows.Forms.Button();
-            this.btnOperator = new System.Windows.Forms.Button();
             this.btnManager = new System.Windows.Forms.Button();
+            this.btnOperator = new System.Windows.Forms.Button();
+            this.btnMaster = new System.Windows.Forms.Button();
+            this.btnClient = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -246,25 +246,15 @@
             this.panel1.Size = new System.Drawing.Size(573, 71);
             this.panel1.TabIndex = 3;
             // 
-            // btnClient
+            // btnManager
             // 
-            this.btnClient.Location = new System.Drawing.Point(35, 13);
-            this.btnClient.Name = "btnClient";
-            this.btnClient.Size = new System.Drawing.Size(87, 46);
-            this.btnClient.TabIndex = 0;
-            this.btnClient.Text = "Клиент";
-            this.btnClient.UseVisualStyleBackColor = true;
-            this.btnClient.Click += new System.EventHandler(this.btnClient_Click);
-            // 
-            // btnMaster
-            // 
-            this.btnMaster.Location = new System.Drawing.Point(168, 13);
-            this.btnMaster.Name = "btnMaster";
-            this.btnMaster.Size = new System.Drawing.Size(87, 46);
-            this.btnMaster.TabIndex = 1;
-            this.btnMaster.Text = "Мастер";
-            this.btnMaster.UseVisualStyleBackColor = true;
-            this.btnMaster.Click += new System.EventHandler(this.btnMaster_Click);
+            this.btnManager.Location = new System.Drawing.Point(429, 13);
+            this.btnManager.Name = "btnManager";
+            this.btnManager.Size = new System.Drawing.Size(87, 46);
+            this.btnManager.TabIndex = 3;
+            this.btnManager.Text = "Менеджер";
+            this.btnManager.UseVisualStyleBackColor = true;
+            this.btnManager.Click += new System.EventHandler(this.btnManager_Click);
             // 
             // btnOperator
             // 
@@ -276,15 +266,25 @@
             this.btnOperator.UseVisualStyleBackColor = true;
             this.btnOperator.Click += new System.EventHandler(this.btnOperator_Click);
             // 
-            // btnManager
+            // btnMaster
             // 
-            this.btnManager.Location = new System.Drawing.Point(429, 13);
-            this.btnManager.Name = "btnManager";
-            this.btnManager.Size = new System.Drawing.Size(87, 46);
-            this.btnManager.TabIndex = 3;
-            this.btnManager.Text = "Менеджер";
-            this.btnManager.UseVisualStyleBackColor = true;
-            this.btnManager.Click += new System.EventHandler(this.btnManager_Click);
+            this.btnMaster.Location = new System.Drawing.Point(168, 13);
+            this.btnMaster.Name = "btnMaster";
+            this.btnMaster.Size = new System.Drawing.Size(87, 46);
+            this.btnMaster.TabIndex = 1;
+            this.btnMaster.Text = "Мастер";
+            this.btnMaster.UseVisualStyleBackColor = true;
+            this.btnMaster.Click += new System.EventHandler(this.btnMaster_Click);
+            // 
+            // btnClient
+            // 
+            this.btnClient.Location = new System.Drawing.Point(35, 13);
+            this.btnClient.Name = "btnClient";
+            this.btnClient.Size = new System.Drawing.Size(87, 46);
+            this.btnClient.TabIndex = 0;
+            this.btnClient.Text = "Клиент";
+            this.btnClient.UseVisualStyleBackColor = true;
+            this.btnClient.Click += new System.EventHandler(this.btnClient_Click);
             // 
             // Authorization
             // 

@@ -238,6 +238,7 @@
             this.btnReports.TabIndex = 2;
             this.btnReports.Text = "Отчёты";
             this.btnReports.UseVisualStyleBackColor = true;
+            this.btnReports.Click += new System.EventHandler(this.btnReports_Click);
             // 
             // btnEditRequest
             // 

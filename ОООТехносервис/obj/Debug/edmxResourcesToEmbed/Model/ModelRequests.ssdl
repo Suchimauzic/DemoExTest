@@ -80,6 +80,43 @@
     <Property Name="UserRole" Type="int" Nullable="false" />
   </EntityType>
   <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "SeregaDemoExDemo.dbo.CorrectViewRequest" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+  <EntityType Name="CorrectViewRequest">
+    <Key>
+      <PropertyRef Name="RequestId" />
+      <PropertyRef Name="RequestDate" />
+      <PropertyRef Name="EquipmentName" />
+      <PropertyRef Name="ProblemName" />
+      <PropertyRef Name="Client" />
+      <PropertyRef Name="StatusName" />
+      <PropertyRef Name="Master" />
+      <PropertyRef Name="RequestTime" />
+      <PropertyRef Name="PriorityName" />
+      <PropertyRef Name="StageName" />
+    </Key>
+    <Property Name="RequestId" Type="int" Nullable="false" />
+    <Property Name="RequestDate" Type="date" Nullable="false" />
+    <Property Name="EquipmentName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ProblemName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Client" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="RequestDescription" Type="nvarchar" MaxLength="250" />
+    <Property Name="StatusName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Master" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="RequestTime" Type="int" Nullable="false" />
+    <Property Name="PriorityName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="StageName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="RequestComment" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "SeregaDemoExDemo.dbo.ViewGroupProblem" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+  <EntityType Name="ViewGroupProblem">
+    <Key>
+      <PropertyRef Name="ProblemName" />
+    </Key>
+    <Property Name="ProblemName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CountProplem" Type="int" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
 предупреждение 6002: В таблице или представлении "SeregaDemoExDemo.dbo.ViewRequest" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
   <EntityType Name="ViewRequest">
     <Key>
@@ -220,6 +257,28 @@
     <EntitySet Name="Status" EntityType="Self.Status" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CorrectViewRequest" EntityType="Self.CorrectViewRequest" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [CorrectViewRequest].[RequestId] AS [RequestId], 
+    [CorrectViewRequest].[RequestDate] AS [RequestDate], 
+    [CorrectViewRequest].[EquipmentName] AS [EquipmentName], 
+    [CorrectViewRequest].[ProblemName] AS [ProblemName], 
+    [CorrectViewRequest].[Client] AS [Client], 
+    [CorrectViewRequest].[RequestDescription] AS [RequestDescription], 
+    [CorrectViewRequest].[StatusName] AS [StatusName], 
+    [CorrectViewRequest].[Master] AS [Master], 
+    [CorrectViewRequest].[RequestTime] AS [RequestTime], 
+    [CorrectViewRequest].[PriorityName] AS [PriorityName], 
+    [CorrectViewRequest].[StageName] AS [StageName], 
+    [CorrectViewRequest].[RequestComment] AS [RequestComment]
+    FROM [dbo].[CorrectViewRequest] AS [CorrectViewRequest]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="ViewGroupProblem" EntityType="Self.ViewGroupProblem" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [ViewGroupProblem].[ProblemName] AS [ProblemName], 
+    [ViewGroupProblem].[CountProplem] AS [CountProplem]
+    FROM [dbo].[ViewGroupProblem] AS [ViewGroupProblem]</DefiningQuery>
+    </EntitySet>
     <EntitySet Name="ViewRequest" EntityType="Self.ViewRequest" store:Type="Views" store:Schema="dbo">
       <DefiningQuery>SELECT 
     [ViewRequest].[RequestDate] AS [RequestDate], 

@@ -170,5 +170,31 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <EntitySetMapping Name="CorrectViewRequest">
+      <EntityTypeMapping TypeName="NSRequests.CorrectViewRequest">
+        <MappingFragment StoreEntitySet="CorrectViewRequest">
+          <ScalarProperty Name="RequestComment" ColumnName="RequestComment" />
+          <ScalarProperty Name="StageName" ColumnName="StageName" />
+          <ScalarProperty Name="PriorityName" ColumnName="PriorityName" />
+          <ScalarProperty Name="RequestTime" ColumnName="RequestTime" />
+          <ScalarProperty Name="Master" ColumnName="Master" />
+          <ScalarProperty Name="StatusName" ColumnName="StatusName" />
+          <ScalarProperty Name="RequestDescription" ColumnName="RequestDescription" />
+          <ScalarProperty Name="Client" ColumnName="Client" />
+          <ScalarProperty Name="ProblemName" ColumnName="ProblemName" />
+          <ScalarProperty Name="EquipmentName" ColumnName="EquipmentName" />
+          <ScalarProperty Name="RequestDate" ColumnName="RequestDate" />
+          <ScalarProperty Name="RequestId" ColumnName="RequestId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ViewGroupProblem">
+      <EntityTypeMapping TypeName="NSRequests.ViewGroupProblem">
+        <MappingFragment StoreEntitySet="ViewGroupProblem">
+          <ScalarProperty Name="CountProplem" ColumnName="CountProplem" />
+          <ScalarProperty Name="ProblemName" ColumnName="ProblemName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

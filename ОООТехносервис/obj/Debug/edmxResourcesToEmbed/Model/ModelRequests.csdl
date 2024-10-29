@@ -267,6 +267,8 @@
     <FunctionImport Name="GetRequestMasterShortName" ReturnType="Collection(NSRequests.GetRequestMasterShortName_Result)">
       <Parameter Name="MasterName" Mode="In" Type="String" />
     </FunctionImport>
+    <EntitySet Name="CorrectViewRequest" EntityType="NSRequests.CorrectViewRequest" />
+    <EntitySet Name="ViewGroupProblem" EntityType="NSRequests.ViewGroupProblem" />
   </EntityContainer>
   <ComplexType Name="GetInfoRequestFromMasterName_Result">
     <Property Type="Int32" Name="RequestId" Nullable="false" />
@@ -320,4 +322,37 @@
     <Property Type="String" Name="UserPassword" Nullable="false" MaxLength="50" />
     <Property Type="Int32" Name="UserRole" Nullable="false" />
   </ComplexType>
+  <EntityType Name="CorrectViewRequest">
+    <Key>
+      <PropertyRef Name="RequestId" />
+      <PropertyRef Name="RequestDate" />
+      <PropertyRef Name="EquipmentName" />
+      <PropertyRef Name="ProblemName" />
+      <PropertyRef Name="Client" />
+      <PropertyRef Name="StatusName" />
+      <PropertyRef Name="Master" />
+      <PropertyRef Name="RequestTime" />
+      <PropertyRef Name="PriorityName" />
+      <PropertyRef Name="StageName" />
+    </Key>
+    <Property Name="RequestId" Type="Int32" Nullable="false" />
+    <Property Name="RequestDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="EquipmentName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ProblemName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Client" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="RequestDescription" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="StatusName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Master" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="RequestTime" Type="Int32" Nullable="false" />
+    <Property Name="PriorityName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="StageName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="RequestComment" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="ViewGroupProblem">
+    <Key>
+      <PropertyRef Name="ProblemName" />
+    </Key>
+    <Property Name="ProblemName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CountProplem" Type="Int32" />
+  </EntityType>
 </Schema>

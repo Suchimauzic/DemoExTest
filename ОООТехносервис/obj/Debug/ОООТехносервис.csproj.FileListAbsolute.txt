@@ -16,3 +16,4 @@ C:\Users\stud.KIT\Documents\Гусев\ОООТехносервис\obj\Debug\О
 C:\Users\stud.KIT\Documents\Гусев\ОООТехносервис\obj\Debug\ОООТехносервис.Authorization.resources
 C:\Users\stud.KIT\Documents\Гусев\ОООТехносервис\obj\Debug\ОООТехносервис.View.ListRequests.resources
 C:\Users\stud.KIT\Documents\Гусев\ОООТехносервис\obj\Debug\ОООТехносервис.View.WorkRequest.resources
+C:\Users\stud.KIT\Documents\Гусев\ОООТехносервис\obj\Debug\ОООТехносервис.View.Report.resources
