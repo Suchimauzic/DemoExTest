@@ -15,6 +15,6 @@ namespace ОООТехносервис.Model
     public partial class ViewGroupProblem
     {
         public string ProblemName { get; set; }
-        public Nullable<int> CountProplem { get; set; }
+        public Nullable<int> CountProblem { get; set; }
     }
 }

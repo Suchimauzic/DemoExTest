@@ -114,7 +114,7 @@
       <PropertyRef Name="ProblemName" />
     </Key>
     <Property Name="ProblemName" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="CountProplem" Type="int" />
+    <Property Name="CountProblem" Type="int" />
   </EntityType>
   <!--Ошибки, обнаруженные при создании:
 предупреждение 6002: В таблице или представлении "SeregaDemoExDemo.dbo.ViewRequest" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
@@ -276,7 +276,7 @@
     <EntitySet Name="ViewGroupProblem" EntityType="Self.ViewGroupProblem" store:Type="Views" store:Schema="dbo">
       <DefiningQuery>SELECT 
     [ViewGroupProblem].[ProblemName] AS [ProblemName], 
-    [ViewGroupProblem].[CountProplem] AS [CountProplem]
+    [ViewGroupProblem].[CountProblem] AS [CountProblem]
     FROM [dbo].[ViewGroupProblem] AS [ViewGroupProblem]</DefiningQuery>
     </EntitySet>
     <EntitySet Name="ViewRequest" EntityType="Self.ViewRequest" store:Type="Views" store:Schema="dbo">

@@ -353,6 +353,6 @@
       <PropertyRef Name="ProblemName" />
     </Key>
     <Property Name="ProblemName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="CountProplem" Type="Int32" />
+    <Property Name="CountProblem" Type="Int32" />
   </EntityType>
 </Schema>
